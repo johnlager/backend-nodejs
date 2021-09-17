@@ -15,7 +15,7 @@ export class createAccount1631832487110 implements MigrationInterface {
           {
             name: 'user_id',
             type: 'uuid',
-            isNullable: false
+            isNullable: true
           },
           {
             name: 'amount',
