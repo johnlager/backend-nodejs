@@ -43,6 +43,7 @@ export class createAccount1631832487110 implements MigrationInterface {
             name: 'deleted_at',
             type: 'timestamp',
             default: null,
+            isNullable: true
           },
         ],
         foreignKeys: [
