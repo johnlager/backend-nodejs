@@ -1,5 +1,6 @@
 import { Account } from "@modules/accounts/infra/typeorm/entity/Account";
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { v4 as uuidv4 } from "uuid";
 
 enum TransactionType {
   DEPOSIT = "DEPOSIT",
@@ -8,10 +9,10 @@ enum TransactionType {
 
 @Entity("transactions")
 class Transaction {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryColumn()
   id: string;
 
-  @Column("decimal", { precision: 6, scale: 2 })
+  @Column("decimal", { precision: 5, scale: 2 })
   amount: number;
 
   @Column({ type: "enum", enum: TransactionType })
@@ -28,6 +29,12 @@ class Transaction {
 
   @DeleteDateColumn()
   deleted_at: Date;
+
+  constructor() {
+    if (!this.id) {
+      this.id = uuidv4();
+    }
+  }
 }
 
-export { Transaction };
+export { Transaction, TransactionType };
