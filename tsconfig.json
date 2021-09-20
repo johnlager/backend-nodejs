@@ -1,10 +1,23 @@
 {
   "compilerOptions": {
-    "target": "ESNEXT",
-    "outDir": "dist",
+    "target": "es5",
     "module": "commonjs",
+    "rootDir": "./",
+    "outDir": "./dist",
+    "baseUrl": "./src",
+    "paths": {
+      "@modules/*": ["modules/*"],
+      "@config/*": ["config/*"],
+      "@shared/*": ["shared/*"],
+      "@errors/*": ["errors/*"],
+      "@utils/*": ["utils/*"]
+    },
+    "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
     "noImplicitThis": true,
     "noImplicitReturns": true,
     "sourceMap": true
