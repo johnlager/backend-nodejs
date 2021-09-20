@@ -25,9 +25,14 @@ export class createTransaction1631832519371 implements MigrationInterface {
             isNullable: true
           },
           {
-            name: 'account_id',
+            name: 'accountId',
             type: 'uuid',
             isNullable: false
+          },
+          {
+            name: 'type',
+            type: 'enum',
+            enum: ['DEPOSIT', 'WITHDRAW']
           },
           {
             name: 'created_at',
@@ -51,7 +56,7 @@ export class createTransaction1631832519371 implements MigrationInterface {
             name: 'FKAccountTransactions',
             referencedTableName: 'accounts',
             referencedColumnNames: ['id'],
-            columnNames: ['account_id'],
+            columnNames: ['accountId'],
             onDelete: 'SET NULL',
             onUpdate: 'SET NULL'
           }
