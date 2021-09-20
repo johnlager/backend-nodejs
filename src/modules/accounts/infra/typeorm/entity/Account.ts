@@ -12,14 +12,14 @@ class Account {
   @PrimaryColumn()
   id: string;
 
-  @Column("decimal", { precision: 6, scale: 2 })
+  @Column("decimal", { precision: 5, scale: 2 })
   amount: number;
 
   @Column({ type: "enum", enum: AccountType })
   type: AccountType;
 
   @OneToMany(() => Transaction, (t) => t.account)
-  transactions: Account[];
+  transactions: Transaction[];
 
   @CreateDateColumn()
   created_at: Date;
