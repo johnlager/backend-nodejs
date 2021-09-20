@@ -9,13 +9,22 @@ class AccountRespository implements IAccountRepository {
   constructor() {
     this.repository = getRepository(Account);
   }
+  
+  async updateAmount(id: string, value: number): Promise<Account> {
+    const account = await this.repository.findOne(id)
+
+    const actualAmount = +account.amount 
+    account.amount = value + actualAmount
+
+    return this.repository.save(account)
+  }
 
   async findOne(id: string): Promise<Account> {
-    return await this.repository.findOne(id)
+    return await this.repository.findOne(id, {relations: ["transactions"]})
   }
 
   async findAll(): Promise<Account[]> {
-    return await this.repository.find()
+    return await this.repository.find({relations: ["transactions"]})
   }
   
   async create(data: ICreateAccountDTO): Promise<Account> { 
