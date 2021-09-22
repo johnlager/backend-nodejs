@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "099db11a-29a1-4419-822f-915473bf852b",
+		"name": "moovin-challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "accounts",
+			"item": [
+				{
+					"name": "create_account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account_type\": \"CC\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:3000/accounts/create",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3000",
+							"path": [
+								"accounts",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list_accounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:3000/accounts/list",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3000",
+							"path": [
+								"accounts",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_account_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:3000/accounts/3e0007f0-dd6e-4fed-83e8-25acdc141477",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3000",
+							"path": [
+								"accounts",
+								"3e0007f0-dd6e-4fed-83e8-25acdc141477"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "transactions",
+			"item": [
+				{
+					"name": "create deposit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"3e0007f0-dd6e-4fed-83e8-25acdc141477\",\r\n    \"value\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:3000/transactions/deposit",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3000",
+							"path": [
+								"transactions",
+								"deposit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create withdraw",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"c77e1dfe-1002-429e-a732-8a9dd0dd11aa\",\r\n    \"value\": 600\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:3000/transactions/deposit",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3000",
+							"path": [
+								"transactions",
+								"deposit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list transactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:3000/transactions",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3000",
+							"path": [
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
